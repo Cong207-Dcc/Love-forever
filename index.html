@@ -1,37 +1,80 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Love Forever 💖</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love Forever ❤️</title>
   <style>
     body {
-      background: linear-gradient(to bottom right, #ffe6e6, #ffcccc);
-      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffe6f0, #ffcce0);
+      font-family: "Segoe UI", sans-serif;
+      color: #d63384;
       text-align: center;
-      padding: 50px;
+      overflow: hidden;
     }
     h1 {
-      color: crimson;
+      margin-top: 40px;
       font-size: 32px;
     }
     p {
       font-size: 20px;
-      color: #333;
-      margin: 10px 0;
+      margin: 8px 0;
     }
     img {
-      margin-top: 30px;
-      width: 220px;
+      width: 200px;
+      margin: 30px auto;
+    }
+    .heart {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: red;
+      transform: rotate(45deg);
+      animation: fall 5s linear infinite;
+    }
+    .heart::before, .heart::after {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -7.5px;
+      left: 0;
+    }
+    .heart::after {
+      left: -7.5px;
+      top: 0;
+    }
+    @keyframes fall {
+      0% { top: -10px; opacity: 1; }
+      100% { top: 100vh; opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <h1>❤️ Cảm ơn em vì đã đến bên anh ❤️</h1>
+  <h1>Cảm ơn em vì đã đến bên anh 💖</h1>
   <p>Mình cùng nhau cố gắng nhé 🥰</p>
   <p>Yêu em! ❤️</p>
   <p>Love forever and always – 15.11.2023</p>
 
-  <!-- Thay link QR bên dưới bằng ảnh QR trái tim của bạn -->
-  <img src="https://i.imgur.com/ezhFdpT.png" alt="Heart QR Code">
+  <img src="https://i.imgur.com/ezhFdpT.png" alt="Heart QR Code" />
+
+  <script>
+    // Tạo hiệu ứng trái tim rơi
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 300);
+  </script>
 </body>
 </html>
